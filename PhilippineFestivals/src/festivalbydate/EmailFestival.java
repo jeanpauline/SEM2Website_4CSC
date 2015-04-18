@@ -1,6 +1,9 @@
 package festivalbydate;
 
 import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +14,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Properties;
  
+
+
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
@@ -37,6 +42,7 @@ public class EmailFestival extends HttpServlet {
     final String sourceEmail = "sem2website@gmail.com"; // requires valid Gmail id
     final String password = "sem2project"; // correct password for Gmail id
     String toEmail = ""; // any destination email id   
+    String emailStr = "";
     
     public EmailFestival() {
         super();
@@ -49,12 +55,15 @@ public class EmailFestival extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		toEmail = request.getParameter("emailadd");
+		emailStr = request.getParameter("contentPrint").toString();
 		try {
 			sendEmail();
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		response.sendRedirect("/PhilippineFestivals/home.html");
+		
 	}
 	
 	static Properties mailServerProperties;
@@ -63,7 +72,7 @@ public class EmailFestival extends HttpServlet {
     
     public void sendEmail() throws AddressException, MessagingException {
  
-        System.out.println("\n1st ===> setup Mail Server Properties..");
+        System.out.println("\n1 - Setup Mail Server Properties..");
  
  
         Properties props = new Properties();
@@ -72,8 +81,7 @@ public class EmailFestival extends HttpServlet {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
  
-        System.out
-                .println("\n2nd ===> create Authenticator object to pass in Session.getInstance argument..");
+        System.out.println("\n2 - Create Authenticator object to pass in Session.getInstance argument..");
  
         Authenticator authentication = new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -84,25 +92,25 @@ public class EmailFestival extends HttpServlet {
         generateAndSendEmail(
                 session,
                 toEmail,
-                "Crunchify's JavaMail API example with Image Attachment",
-                "Greetings, <br><br>Test email by Crunchify.com JavaMail API example. Please find here attached Image."
-                        + "<br><br> Regards, <br>Crunchify Admin");
+                "Request to Send Festival Details",
+                emailStr
+                        + "<br><br> Regards, <br>SEM2 Admin");
  
     }
  
     public static void generateAndSendEmail(Session session, String toEmail, String subject,
             String body) {
         try {
-            System.out.println("\n3rd ===> generateAndSendEmail() starts..");
+            //System.out.println("\n3 - call generateAndSendEmail()");
  
             MimeMessage crunchifyMessage = new MimeMessage(session);
             crunchifyMessage.addHeader("Content-type", "text/HTML; charset=UTF-8");
             crunchifyMessage.addHeader("format", "flowed");
             crunchifyMessage.addHeader("Content-Transfer-Encoding", "8bit");
  
-            crunchifyMessage.setFrom(new InternetAddress("noreply@crunchify.com",
-                    "NoReply-Crunchify"));
-            crunchifyMessage.setReplyTo(InternetAddress.parse("noreply@crunchify.com", false));
+            crunchifyMessage.setFrom(new InternetAddress("sem2website@gmail.com",
+                    "NoReply-Sem2Website"));
+            crunchifyMessage.setReplyTo(InternetAddress.parse("sem2website@gmail.com", false));
             crunchifyMessage.setSubject(subject, "UTF-8");
             crunchifyMessage.setSentDate(new Date());
             crunchifyMessage.setRecipients(Message.RecipientType.TO,
@@ -121,7 +129,7 @@ public class EmailFestival extends HttpServlet {
             messageBodyPart = new MimeBodyPart();
  
             // Valid file location
-            String filename = "/PhilippineFestivals/WebContent/img/decc.jpg";
+            String filename = "C:/Users/Jean/Desktop/SEM2Website_4CSC/PhilippineFestivals/WebContent/img/welcome.png";
             DataSource source = new FileDataSource(filename);
             messageBodyPart.setDataHandler(new DataHandler(source));
             messageBodyPart.setFileName(filename);
@@ -129,22 +137,21 @@ public class EmailFestival extends HttpServlet {
             messageBodyPart.setHeader("Content-ID", "image_id");
             multipart.addBodyPart(messageBodyPart);
  
-            System.out.println("\n4th ===> third part for displaying image in the email body..");
+            System.out.println("\n3 - Displaying image in the email body");
             messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setContent("<br><h3>Find below attached image</h3>"
-                    + "<img src='cid:image_id'>", "text/html");
+            messageBodyPart.setContent("<img src='cid:image_id'>", "text/html");
             multipart.addBodyPart(messageBodyPart);
             crunchifyMessage.setContent(multipart);
  
-            System.out.println("\n5th ===> Finally Send message..");
+            System.out.println("\n4 - Send Message");
  
             // Finally Send message
             Transport.send(crunchifyMessage);
  
             System.out
-                    .println("\n6th ===> Email Sent Successfully With Image Attachment. Check your email now..");
-            System.out.println("\n7th ===> generateAndSendEmail() ends..");
- 
+                    .println("\n5 - Successfully sent email");
+            //System.out.println("\n7th ===> generateAndSendEmail() ends..");
+            
         } catch (MessagingException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
