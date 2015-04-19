@@ -1,0 +1,294 @@
+@CHARSET "ISO-8859-1";
+/*INDEX*/
+html { 
+	min-height: 100%; 
+}
+#welcome{
+	background-image:url("img/background-2.jpg");
+	background-size: 125%;
+	background-position:center;
+	background-repeat: no-repeat;
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+	overflow: hidden;
+	margin: 0 0 0 0;
+	min-height: 100%;
+	min-width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+#paddingTop{
+	width: 100%;
+	height: 20%;
+	min-height: 20%;
+	display: block;
+	margin: 0 0 0 0;
+	position: relative;
+	float:left;
+}
+
+#paddingBottom{
+	margin: 0 0 0 0;
+	width: 100%;
+	height: 20%;
+	min-height: 20%;
+	display: block;
+	position: relative;
+	float:left;
+}
+
+#paddingMid{
+	width: 100%;
+	min-height: 60%;
+	height: 60%;
+	display: block;
+	margin: 0 0 0 0;float:
+	left;
+	position:relative;
+	background-image:  url("img/background-div2.png");
+	background-size: contain;
+	-ms-background-size:contain;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	background-repeat:repeat;
+	background-position:center;
+	margin: 0 0 0 0;
+}
+
+#welcomelogo{
+	width: 100%;
+	min-height: 60%;
+	height: 100%;
+	display: block;
+	margin: 0 0 0 0;
+	float: left;
+	position:relative;
+	background-image: url(img/welcome.png);
+	background-size: contain;
+	-ms-background-size:contain;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.offset{
+	width: 100%;
+	height:30%;	
+	float:left;
+	display: block;
+	margin: 0 0 0 0;
+}
+
+#continuePage{
+	width: 100%;
+	height: 40%;
+	display: block;
+	background-image: url("img/background-div2.png");
+	background-size: contain;
+	-ms-background-size:contain;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	background-repeat:repeat;
+	background-position:center;
+	float:left;
+	margin: 0 0 0 0;
+}
+
+#cont{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	font-size: 25px;
+	padding-top: 0.3em;
+	font-color: white;
+	
+}
+
+#toContinue:link{
+	color: white;	
+}
+#toContinue:visited{
+	color: white;	
+}
+#toContinue:hover{
+	color: white;	
+}
+#toContinue:active{
+	color: white;	
+}
+/*HOME*/
+
+#homeBody{
+	background-image:url("img/background-body.jpg");
+	background-size:50%;
+	background-repeat: repeat;
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+	overflow: hidden;
+	margin: 0 0 0 0;
+	min-height: 100%;
+	min-width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+#content{
+	background-image:url("img/background-div.png");
+	width: 63%;
+	min-width: 63%;
+	height: 90%;
+	min-height: 90%;
+	display: block;
+	margin: 0 0 0 0;
+	position: relative;
+	float:left;
+	overflow-y: scroll;
+	text-align:center;
+}
+
+#menu{
+	background-image:url("img/background-div.png");
+	width: 25%;
+	height: 90%;
+	min-height: 90%;
+	min-width: 25%;
+	display: block;
+	margin: 0 0 0 0;
+	position: relative;
+	float:left;
+}
+
+#divider{
+	width: 2%;
+	min-width: 2%;
+	height: 90%;
+	min-height: 90%;
+	display: block;
+	margin: 0 0 0 0;
+	position: relative;
+	float:left;
+}
+
+.off{
+	width: 5%;
+	min-width: 5%;
+	height: 90%;
+	min-height: 90%;
+	display: block;
+	margin: 0 0 0 0;
+	position: relative;
+	float:left;
+}
+
+.updown{
+	height: 5%;
+	min-height: 5%;
+	width: 100%;
+	min-width: 100%;
+	display: block;
+	margin: 0 0 0 0;
+	position: relative;
+	float:left;
+}
+
+.hmenu{
+	background-image:url("img/background-div2.png");
+	height: 10%;
+	min-height: 10%;
+	width: 100%;
+	min-width: 100%;
+	display: block;
+	margin: 0 0 0 0;
+	position: relative;
+	float:left;
+	color:white;
+}
+
+.hmenu{
+	background-image:url("img/background-div2.png");
+	height: 10%;
+	min-height: 10%;
+	width: 100%;
+	min-width: 100%;
+	display: block;
+	margin: 0 0 0 0;
+	position: relative;
+	float:left;
+	color:white;
+}
+#menuoff{
+	height: 3%;
+	min-height: 3%;
+	width: 100%;
+	min-width: 100%;
+	display: block;
+	margin: 0 0 0 0;
+	position: relative;
+	float:left;
+	color:white;
+}
+.menuFont{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	font-size: 27px;
+	padding-top: 0.3em;
+	font-color: white;
+}
+
+#calendarContent{
+	text-align: center;
+}
+.cal{
+	width: 100px;
+	height: 100px;
+}
+
+#mapStyle{
+	outline: 2px;
+}
+
+/*POP OUT MAP*/
+@CHARSET "ISO-8859-1";
+
+
+.black_overlay{
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index:1001;
+	-moz-opacity: 0.8;
+	opacity:.60;
+	filter: alpha(opacity=80);
+}
+
+.white_content .close {
+    display:block;
+    text-decoration:none;
+    font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:30px;
+    color:black;
+    float: right;
+    padding-top:0;
+}
+
+.white_content {
+	display: none;
+	position: absolute;
+	top: 10%;
+	left: 25%;
+	width: 47%;
+	height: 70%;
+	border: 12px solid #808080;
+	background-color: white;
+	z-index:1002;
+	overflow: auto;
+	text-align: center;
+}
